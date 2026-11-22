@@ -39,3 +39,14 @@ spec:
 kubectl apply -f deployment.yaml
 kubectl port-forward deployment/vehicle-rental 8888:8080
 http://localhost:8888/CampusMgmtSystem/
+
+
+
+
+
+
+Docker file for .war 
+FROM tomcat:9-jdk11
+COPY **/*.war /usr/local/tomcat/webapps
+EXPOSE 8080
+CMD ["catalina.sh","run"]
