@@ -40,9 +40,30 @@ kubectl apply -f deployment.yaml
 kubectl port-forward deployment/vehicle-rental 8888:8080
 http://localhost:8888/CampusMgmtSystem/
 
+# Use an official Java runtime as a parent image
+FROM tomcat:9-jdk11
+
+# Copy the built WAR file to the Tomcat webapps directory
+COPY target/*.war /usr/local/tomcat/webapps/
+
+# Expose the port Tomcat is running on
+EXPOSE 8080
+
+# Start Tomcat server
+CMD ["catalina.sh", "run"]
 
 
 
+
+
+
+
+sudo + ..........
+Step 1:- build your image
+docker build –t <imagename> .(dot)
+Step 2:- check for images
+Step 3:- run image
+docker run –d --name app-demo –p 6060:8080 <image name>
 
 
 Docker file for .war 
